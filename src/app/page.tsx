@@ -1,3 +1,4 @@
+import SearchBar from "@/components/home-page/searchbar"
 import Image from "next/image"
 
 export default function Home() {
@@ -10,6 +11,7 @@ export default function Home() {
           className="w-full h-full object-cover"
         />
       </section>
+      
       <section className="col-start-1 row-start-1 align-middle content-center pl-4 max-w-[90vh]">
         <h1
           className="text-white font-extrabold text-4xl"
@@ -30,6 +32,9 @@ export default function Home() {
           This is the place for you, a page intended for you to find new and
           different ideas for cooking
         </h5>
+      </section>
+      <section className="col-start-1 row-start-1 pl-4 w-full grid justify-center ">
+        <SearchBar/>
       </section>
     </main>
   )
