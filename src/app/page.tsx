@@ -1,7 +1,9 @@
+import Foods from "@/components/home-page/foods"
 import SearchBar from "@/components/home-page/searchbar"
-import Image from "next/image"
+import CardFood from "@/components/reusable/card-food"
 
 export default function Home() {
+  
   return (
     <main className="grid grid-cols-1 ">
       <section className="col-start-1 row-start-1 w-full h-[519px]">
@@ -35,6 +37,9 @@ export default function Home() {
       </section>
       <section className="col-start-1 row-start-1 pl-4 w-full grid justify-center ">
         <SearchBar/>
+      </section>
+      <section>
+        <Foods />
       </section>
     </main>
   )
