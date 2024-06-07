@@ -14,3 +14,21 @@
 #FAA307
 #FFBA08
  */
+
+@keyframes moveBall {
+  0% {
+    transform: translateX(0px);
+  }
+  100% {
+    transform: translateX(100px);
+  }
+}
+
+
+.ball{
+  width: 20px;
+  height: 20px;
+  background-color: red;
+  border-radius: 50%;
+  animation: moveBall 2s both;
+}

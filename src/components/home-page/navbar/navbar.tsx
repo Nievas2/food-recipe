@@ -1,11 +1,13 @@
 "use client"
+import { useTheme } from "@/assets/contexts/theme"
 import Icon from "@/assets/icon"
 import Image from "next/image"
-import { useState } from "react"
+import { useContext, useState } from "react"
 
 export default function Navbar() {
   const [activeMenuMovil, setActiveMenuMovil] = useState(true)
-
+  const [darkMode, setDarkMode] = useState(false)
+  const { theme, toggleTheme } = useTheme();
   return (
     <nav className="w-full navbar bg-[#F48C06]">
       <div className="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
@@ -27,7 +29,6 @@ export default function Navbar() {
                 fill="none"
                 viewBox="0 0 24 24"
                 stroke="currentColor"
-                aria-hidden="true"
               >
                 <path d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
               </svg>
@@ -40,7 +41,7 @@ export default function Navbar() {
             <div className="hidden sm:ml-6 sm:block content-center w-full">
               <div className="flex space-x-4 ">
                 <section className="flex flex-row justify-start">
-                  <a
+                  {/* <a
                     href="#proyects"
                     className="text-gray-300 block rounded-md px-3 py-2 text-base font-medium h-full"
                   >
@@ -51,9 +52,22 @@ export default function Navbar() {
                     className="text-gray-300 block rounded-md px-3 py-2 text-base font-medium"
                   >
                     Estudios
-                  </a>
+                  </a> */}
                 </section>
                 <section className="flex flex-row justify-self-end justify-end gap-3 flex-grow">
+                  <button onClick={() => {
+                    setDarkMode(!darkMode)
+                    toggleTheme()
+                    }}>
+                    <div className="bg-white pr-6 rounded-full">
+                      <div
+                      className={`rounded-full w-6 h-6 bg-red-600 duration-200 ${
+                        darkMode ? "translate-x-6 bg-gray-700" : ""
+                      }`}
+                    ></div>
+                    </div>
+                    
+                  </button>
                   <div className="flex align-midle text-white">
                     <button>Modo oscuro</button>
                   </div>
@@ -75,7 +89,7 @@ export default function Navbar() {
         <div className="space-y-1 px-2 pb-3 pt-2">
           {/* <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" --> */}
 
-          <a
+          {/* <a
             href="#"
             className="text-gray-300 hover:bg-gray-700 hover:text-white block rounded-md px-3 py-2 text-base font-medium"
           >
@@ -86,7 +100,7 @@ export default function Navbar() {
             className="text-gray-300 hover:bg-gray-700 hover:text-white block rounded-md px-3 py-2 text-base font-medium"
           >
             Estudios
-          </a>
+          </a> */}
           {/* <a
                 href="#"
                 className="text-gray-300 hover:bg-gray-700 hover:text-white block rounded-md px-3 py-2 text-base font-medium"

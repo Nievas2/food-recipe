@@ -2,7 +2,7 @@ const Api_Key = "dcc2771288e04c2cb2990f5566cf1d98"
 export const Food = async ({ search }: string) => {
   try {
     const result = await fetch(
-      `https://api.spoonacular.com/food/products/search?query=${search}&number=10&apiKey=${Api_Key}`
+      `https://api.spoonacular.com/food/products/search?query=${search}&number=4&apiKey=${Api_Key}`
     )
     const json = await result.json()
 
@@ -20,7 +20,7 @@ export const Food = async ({ search }: string) => {
 export const getFoods = async () => {
   try {
     const result = await fetch(
-      `https://api.spoonacular.com/recipes/random?limitLicense=true&number=10&apiKey=${Api_Key}`
+      `https://api.spoonacular.com/recipes/random?limitLicense=true&number=6&apiKey=${Api_Key}`
     ).catch((error) => {
       throw new Error(error)
     })
@@ -35,5 +35,21 @@ export const getFoods = async () => {
     }))
   } catch (error) {
     throw new Error("Error buscando las comidas")
+  }
+}
+export const getTrivia = async () => {
+  try {
+    const result = await fetch(
+      `https://api.spoonacular.com/food/trivia/random?apiKey=${Api_Key}`
+    ).catch((error) => {
+      throw new Error(error)
+    })
+    const json = await result.json()
+
+    const trivia = json.products
+    console.log(result)
+    return trivia
+  } catch (error) {
+    throw new Error("Error buscando la trivia")
   }
 }

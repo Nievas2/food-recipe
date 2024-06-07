@@ -12,8 +12,8 @@ export default function SearchBar({
   firstSearch: MutableRefObject<boolean>
 }) {
   return (
-    <main className="w-[90vh] p-2 flex justify-center mt-4">
-      <div className="w-full flex flex-row rounded-xl  h-12 border-[1px] border-slate-950">
+    <main className="w-[100%] sm:w-[100vh] p-2 flex justify-center mt-4">
+      <div className="w-full flex flex-row rounded-xl h-12 border-[1px] border-slate-950">
         <button
           type="submit"
           className="w-12 bg-white rounded-l-xl border-r-[1px] border-r-slate-950 px-4 py-2"
@@ -22,7 +22,7 @@ export default function SearchBar({
         </button>
         <input
           type="text"
-          className="w-full  p-2"
+          className="w-full p-2 focus:outline-none"
           onChange={e => setSearch(e.target.value)}
         />
         <select
