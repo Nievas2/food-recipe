@@ -1,9 +1,9 @@
 import Foods from "@/components/home-page/foods"
+import SearchContent from "@/components/home-page/search-content"
 import SearchBar from "@/components/home-page/searchbar"
 import CardFood from "@/components/reusable/card-food"
 
 export default function Home() {
-  
   return (
     <main className="grid grid-cols-1 ">
       <section className="col-start-1 row-start-1 w-full h-[519px]">
@@ -13,7 +13,7 @@ export default function Home() {
           className="w-full h-full object-cover"
         />
       </section>
-      
+
       <section className="col-start-1 row-start-1 align-middle content-center pl-4 max-w-[90vh]">
         <h1
           className="text-white font-extrabold text-4xl"
@@ -35,9 +35,7 @@ export default function Home() {
           different ideas for cooking
         </h5>
       </section>
-      <section className="col-start-1 row-start-1 pl-4 w-full grid justify-center ">
-        <SearchBar/>
-      </section>
+      <SearchContent />
       <section>
         <Foods />
       </section>

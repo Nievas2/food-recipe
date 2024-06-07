@@ -1,6 +1,16 @@
+"use client"
 import SearchIcon from "@/assets/searchIcon"
+import { Dispatch, MutableRefObject, SetStateAction } from "react"
 
-export default function SearchBar() {
+export default function SearchBar({
+  search,
+  setSearch,
+  firstSearch
+}: {
+  search: string
+  setSearch: Dispatch<SetStateAction<string>>
+  firstSearch: MutableRefObject<boolean>
+}) {
   return (
     <main className="w-[90vh] p-2 flex justify-center mt-4">
       <div className="w-full flex flex-row rounded-xl  h-12 border-[1px] border-slate-950">
@@ -13,6 +23,7 @@ export default function SearchBar() {
         <input
           type="text"
           className="w-full  p-2"
+          onChange={e => setSearch(e.target.value)}
         />
         <select
           name="option"
