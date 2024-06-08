@@ -9,7 +9,7 @@ export default function Navbar() {
   const [darkMode, setDarkMode] = useState(false)
   const { theme, toggleTheme } = useTheme()
   return (
-    <nav className={`w-full navbar ${theme === "dark" ? "bg-[#815419]" : "bg-[#F48C06]"}`}>
+    <nav className={`w-full sticky top-0 navbar ${theme === "dark" ? "bg-[#815419]" : "bg-[#F48C06]"}`}>
       <div className="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
         <div className="relative flex h-16 items-center justify-between">
           <div className="absolute inset-y-0 left-0 flex items-center sm:hidden">
@@ -58,18 +58,17 @@ export default function Navbar() {
                   <button
                     className="flex align-midle text-white"
                     onClick={() => {
-                      setDarkMode(!darkMode)
                       toggleTheme()
                     }}
                   >
                     <div className="bg-white pr-6 rounded-full">
                       <div
                         className={`rounded-full w-6 h-6 bg-red-600 duration-200 ${
-                          darkMode ? "translate-x-6 bg-gray-700" : ""
+                          theme === "light" ? "translate-x-6 bg-gray-700" : ""
                         }`}
                       ></div>
                     </div>
-                  </button>{" "}
+                  </button>
                   <span className="pl-2 text-white w-[110px]">
                     {theme === "light" ? "Modo oscuro" : "Modo claro"}
                   </span>

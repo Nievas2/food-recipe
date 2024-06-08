@@ -1,3 +1,5 @@
+import { Recipe } from "@/types/food"
+
 const Api_Key = "dcc2771288e04c2cb2990f5566cf1d98"
 export const Food = async ({ search }: string) => {
   try {
@@ -26,13 +28,18 @@ export const getFoods = async () => {
     })
     const json = await result.json()
 
-    const foods = json.products
-    console.log(result)
-    return foods?.map((food: { id: any; image: any; title: any }) => ({
-      id: food.id,
-      img: food.image,
-      title: food.title
-    }))
+    const foods = json.recipes
+    console.log(json)
+    return foods?.map(
+      (food: Recipe) => ({
+        id: food.id,
+        image: food.image,
+        title: food.title,
+        diets: food.diets,
+        vegan: food.vegan,
+        vegetarian: food.vegetarian
+      })
+    )
   } catch (error) {
     throw new Error("Error buscando las comidas")
   }
