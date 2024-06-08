@@ -1,15 +1,17 @@
 "use client"
 import { useRef, useState } from "react"
 import SearchBar from "./searchbar"
+import { useTheme } from "@/assets/contexts/theme"
 
 export default function SearchContent() {
   const [search, setSearch] = useState("")
+  const { theme, toggleTheme } = useTheme()
   const firstSearch = useRef(true)
   return (
     <main className="col-start-1 row-start-1">
       <section
         className={`col-start-1 row-start-1 pl-4 w-full grid justify-center z-10 ${
-          search != "" ? "bg-white" : ""
+          search != "" && theme === "light" ? "bg-white" : theme === "dark" && search != "" ? "bg-[#03071E]" : "bg-transparent"
         }`}
       >
         <SearchBar
@@ -20,7 +22,7 @@ export default function SearchContent() {
       </section>
       <section
         className={`col-start-1 row-start-1 w-full z-0 ${
-          search != "" ? "bg-white" : ""
+          search != "" && theme === "light" ? "bg-white": theme === "dark" ? "bg-[#03071E] text-white" : ""
         }`}
       >
         {search != "" ? (

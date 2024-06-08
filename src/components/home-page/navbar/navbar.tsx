@@ -7,9 +7,9 @@ import { useContext, useState } from "react"
 export default function Navbar() {
   const [activeMenuMovil, setActiveMenuMovil] = useState(true)
   const [darkMode, setDarkMode] = useState(false)
-  const { theme, toggleTheme } = useTheme();
+  const { theme, toggleTheme } = useTheme()
   return (
-    <nav className="w-full navbar bg-[#F48C06]">
+    <nav className={`w-full navbar ${theme === "dark" ? "bg-[#815419]" : "bg-[#F48C06]"}`}>
       <div className="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
         <div className="relative flex h-16 items-center justify-between">
           <div className="absolute inset-y-0 left-0 flex items-center sm:hidden">
@@ -55,22 +55,24 @@ export default function Navbar() {
                   </a> */}
                 </section>
                 <section className="flex flex-row justify-self-end justify-end gap-3 flex-grow">
-                  <button onClick={() => {
-                    setDarkMode(!darkMode)
-                    toggleTheme()
-                    }}>
+                  <button
+                    className="flex align-midle text-white"
+                    onClick={() => {
+                      setDarkMode(!darkMode)
+                      toggleTheme()
+                    }}
+                  >
                     <div className="bg-white pr-6 rounded-full">
                       <div
-                      className={`rounded-full w-6 h-6 bg-red-600 duration-200 ${
-                        darkMode ? "translate-x-6 bg-gray-700" : ""
-                      }`}
-                    ></div>
+                        className={`rounded-full w-6 h-6 bg-red-600 duration-200 ${
+                          darkMode ? "translate-x-6 bg-gray-700" : ""
+                        }`}
+                      ></div>
                     </div>
-                    
-                  </button>
-                  <div className="flex align-midle text-white">
-                    <button>Modo oscuro</button>
-                  </div>
+                  </button>{" "}
+                  <span className="pl-2 text-white w-[110px]">
+                    {theme === "light" ? "Modo oscuro" : "Modo claro"}
+                  </span>
                   <div className="flex align-midle text-white">
                     <button>Idioma</button>
                   </div>
