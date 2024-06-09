@@ -34,7 +34,7 @@ export default function CardFood({ recipe }: { recipe: Recipe }) {
         {recipe.diets.map((diet, index) => (
           <div key={index}>
             <h4
-              className={`text-white font-extralight text-md bg-[#9D0208] p-1 px-2 rounded-sm`}
+              className={`text-white font-extralight text-md bg-[#9D0208] p-1 px-2 rounded-sm capitalize`}
             >
               {diet}
             </h4>

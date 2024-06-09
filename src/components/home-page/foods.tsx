@@ -7,14 +7,14 @@ import { Recipe } from "@/types/food"
 export default function Foods() {
   const [foods, setFoods] = useState<Recipe[]>()
   async function getFoodsRandoms() {
-    const response = await getFoods()
+    /* const response = await getFoods()
       .then((data) => {
         setFoods(data)
         console.log(data)
       })
       .catch((error) => {
         throw new Error(error)
-      })
+      }) */
 
     /* setFood(["data","data" , "", ""]) */
   }
@@ -24,13 +24,13 @@ export default function Foods() {
 
   return (
     <main className="w-full grid grid-cols-2 justify-center align-middle gap-4 p-4">
-      {foods &&
+      {/* {foods &&
         foods.map((food: Recipe) => (
           <CardFood
             key={crypto.randomUUID()}
             recipe={food}
           />
-        ))}
+        ))} */}
     </main>
   )
 }
