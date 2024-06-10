@@ -1,4 +1,7 @@
 {
     "name": "English",
-    "language": "en"
+    "language": "en",
+    "title":"All cooking recipes🍳",
+    "subTitle":"Do you need ideas because you don't know what to cook?",
+    "description":"This is the place for you, a page intended for you to find new and different ideas for cooking"
 }

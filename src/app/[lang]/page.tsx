@@ -7,19 +7,32 @@ import CardFood from "@/components/reusable/card-food"
 import { useParams } from "next/navigation"
 import { useContext, useEffect, useState } from "react"
 
+ interface Dictionary {
+   name: string
+   language: string
+   title:string
+   subTitle:string
+   description:string
+ }
 export default function Home() {
   const { theme, toggleTheme } = useTheme()
   const params = useParams<{ lang: string }>()
-  const [dictionary, setDictionary] = useState({
+  const [dictionary, setDictionary] = useState<Dictionary>({
     name: "",
     language: "",
+    title:"",
+    subTitle:"",
+    description:""
   })
   async function getDictionary() {
     console.log(params.lang);
     await import(`@/app/dictionaries/${params.lang}.json`).then((res) =>
       setDictionary({
-        name : res.default.name,
-        language : res.default.language
+        name: res.default.name,
+        language: res.default.language,
+        title: res.default.title,
+        subTitle: res.default.subTitle,
+        description: res.default.description
       })
     )
   }
@@ -45,20 +58,19 @@ export default function Home() {
           className="text-white font-extrabold text-4xl"
           style={{ textShadow: "1px 1px 5px #03071E" }}
         >
-          All cooking recipes🍳
+          {dictionary.title}
         </h1>
         <h4
           className="text-white font-light text-2xl"
           style={{ textShadow: "1px 1px 5px #03071E" }}
         >
-          {"Do you need ideas because you don't know what to cook?"}
+          {dictionary.subTitle}
         </h4>
         <h5
           className="text-white font-extralight text-lg"
           style={{ textShadow: "1px 1px 5px #03071E" }}
         >
-          This is the place for you, a page intended for you to find new and
-          different ideas for cooking
+          {dictionary.description}
         </h5>
       </section>
       <SearchContent />

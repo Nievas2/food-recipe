@@ -1,4 +1,8 @@
 {
     "name": "Espanol",
-    "language": "es"
+    "language": "es",
+    "title":"Todas las recetas de cocina🍳",
+    "subTitle":"¿Necesitas ideas porque no sabes qué cocinar?",
+    "description":"Este es el lugar para ti, una página destinada a que encuentres novedades y diferentes ideas para cocinar"
+
 }
